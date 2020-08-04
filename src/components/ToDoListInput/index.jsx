@@ -19,7 +19,7 @@ class ToDoListInput extends Component{
     }
 
     handleClick = () => {
-        if(this.state.text.trim() !== ""){
+        if(this.ref.current.value.trim() !== ""){          
             this.props.addToDoItem(this.state.text);
             this.ref.current.value = ""
         } else {
@@ -36,6 +36,5 @@ class ToDoListInput extends Component{
         );
     }
 }
-
 
 export default connect(null, { addToDoItem })(ToDoListInput);

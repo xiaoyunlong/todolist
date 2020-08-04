@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ToDoListInput from './../ToDoListInput';
 import ToDoListItem from './../ToDoListItem';
 import { deleteToDoItem } from './../../actions'
+import PropTypes from 'prop-types'
 
 class ToDoList extends Component{
 
@@ -18,6 +19,10 @@ class ToDoList extends Component{
             </div>
         );
     }
+}
+
+ToDoList.propTypes = {
+    items: PropTypes.array.isRequired
 }
 
 const mapStateToProps = (state) => {
