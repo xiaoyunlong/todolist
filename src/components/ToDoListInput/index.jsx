@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { addToDoItem } from './../../actions';
+import { addToDoItem } from '../../actions';
 import { connect } from 'react-redux';
 
-class ToDoListInput extends Component{
+class TodoListInput extends Component{
 
     constructor(props) {
         super(props);
@@ -41,4 +41,4 @@ class ToDoListInput extends Component{
     }
 }
 
-export default connect(null, { addToDoItem })(ToDoListInput);
+export default connect(null, { addToDoItem })(TodoListInput);

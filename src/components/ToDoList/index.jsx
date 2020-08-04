@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ToDoListInput from './../ToDoListInput';
-import ToDoListItem from './../ToDoListItem';
+import TodoListInput from './../TodoListInput';
+import TodoListItem from './../TodoListItem';
 import { deleteToDoItem, achieveTodoItem } from './../../actions'
 import PropTypes from 'prop-types'
 
-class ToDoList extends Component{
+class TodoList extends Component{
 
     render() {
         return (
             <div>
-                <ToDoListInput />
+                <h2>All TodoList</h2>
+                <TodoListInput />
                 {
                     this.props.items.map((item, index) => 
-                        <ToDoListItem key={index} index={index} item={item}
+                        <TodoListItem key={index} index={index} item={item}
                             handleDelete={this.props.deleteToDoItem}
                             handleAchieve={this.props.achieveTodoItem} />)
                 }
@@ -22,7 +23,7 @@ class ToDoList extends Component{
     }
 }
 
-ToDoList.propTypes = {
+TodoList.propTypes = {
     items: PropTypes.array.isRequired
 }
 
@@ -32,4 +33,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { deleteToDoItem, achieveTodoItem })(ToDoList);
+export default connect(mapStateToProps, { deleteToDoItem, achieveTodoItem })(TodoList);
