@@ -8,20 +8,30 @@ class ToDoListInput extends Component{
         super(props);
         this.state = {
             text: ""
-        }
+        };
+        this.ref = React.createRef();
     }
 
     handleInputChanged = (event) => {
         this.setState({
             text: event.target.value
-        });
+        });       
+    }
+
+    handleClick = () => {
+        if(this.state.text.trim() !== ""){
+            this.props.addToDoItem(this.state.text);
+            this.ref.current.value = ""
+        } else {
+            alert("Please input todo item!");
+        }
     }
 
     render() {
         return (
             <div>
-                <input type="text" onChange={this.handleInputChanged} />
-                <button onClick = {() => this.props.addToDoItem(this.state.text)}>ADD</button>
+                <input type="text" ref={this.ref} onChange={this.handleInputChanged} />
+                <button onClick = {this.handleClick}>ADD</button>
             </div>
         );
     }
