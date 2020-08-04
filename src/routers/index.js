@@ -1,9 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Provider } from 'react-redux'
-import { BrowserRouter, Route } from 'react-router-dom'
-import { NavLink } from 'react-router-dom'
-import TodoListPage from './../components/TodoListPage'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Provider } from 'react-redux';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import TodoListPage from './../components/TodoListPage';
+import FinishedTodoListPage from './../components/FinishedTodoListPage';
 
 const Router = ({ store }) => (
   <Provider store={store}>
@@ -26,7 +27,8 @@ const Router = ({ store }) => (
           color: 'black',
           fontSize: '24px'
         }}>Finished TodoList</NavLink>
-      <Route path="/" component={TodoListPage} />
+      <Route exact path="/" component={TodoListPage} />
+      <Route exact path="/finished" component={FinishedTodoListPage} />
     </BrowserRouter>
   </Provider>
 )
