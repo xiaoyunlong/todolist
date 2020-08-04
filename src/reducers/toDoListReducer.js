@@ -1,11 +1,19 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { DELETE_TODO_ITEM, ADD_TODO_ITEM } from '../constants/actionTypes'
+import { DELETE_TODO_ITEM, ADD_TODO_ITEM, ACHIEVE_TODO_ITEM } from '../constants/actionTypes'
 
 const initState = {
     items: []
 }
 
 export default createReducer(initState, {
+    [ADD_TODO_ITEM]: (state, action) => ({items: [...state.items, action.payload ]}),
     [DELETE_TODO_ITEM]: (state, action) => ({items: state.items.filter((item, index) => action.payload !== index)}),
-    [ADD_TODO_ITEM]: (state, action) => ({items: [...state.items, action.payload ]})
+    [ACHIEVE_TODO_ITEM]: (state, action) => ({
+        items: state.items.map((item, index) => {
+            if (index === action.payload) {
+                return {text: item.text, done: !item.done}
+            }
+            return item
+        })
+    })
 })

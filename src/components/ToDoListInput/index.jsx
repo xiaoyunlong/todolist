@@ -20,7 +20,11 @@ class ToDoListInput extends Component{
 
     handleClick = () => {
         if(this.ref.current.value.trim() !== ""){          
-            this.props.addToDoItem(this.state.text);
+            const item = {
+                text: this.state.text,
+                done: false
+            }
+            this.props.addToDoItem(item);
             this.ref.current.value = ""
         } else {
             alert("Please input todo item!");

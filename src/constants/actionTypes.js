@@ -1,2 +1,3 @@
 export const ADD_TODO_ITEM = 'ADD_TODO_ITEM';
 export const DELETE_TODO_ITEM = 'DELETE_TODO_ITEM';
+export const ACHIEVE_TODO_ITEM = 'ACHIEVE_TODO_ITEM';
