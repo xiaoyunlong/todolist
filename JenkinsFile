@@ -4,7 +4,10 @@ pipeline {
 
     environment {
         CI = 'true'
+        node = "D:\node"
+        npm = "D:\node"
     }
+
 
     stages {
         stage('Build') { 
